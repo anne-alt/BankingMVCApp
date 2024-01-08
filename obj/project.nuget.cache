@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NOXZwn2T3lT7i88O0hMv9C2Bjne++COlFAXSVhrCHv5bamcepdrydefMQPtf9D+q3JFMmkMjoNXfjwD5JStWug==",
+  "dgSpecHash": "wGF3PVkUK85F73hYRRDMIdLs0q8SB4AGWFA+spSuyO+vXp72ZgbqPAfdyxgcZku+qq6tpyeHCGAqEidbl1s9SA==",
   "success": true,
   "projectFilePath": "/home/anne/Development/C/BankingMVCApp/BankingMVCApp.csproj",
   "expectedPackageFiles": [
+    "/home/anne/.nuget/packages/faker.net/2.0.154/faker.net.2.0.154.nupkg.sha512",
     "/home/anne/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/home/anne/.nuget/packages/microsoft.aspnetcore.cryptography.internal/8.0.0/microsoft.aspnetcore.cryptography.internal.8.0.0.nupkg.sha512",
     "/home/anne/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/8.0.0/microsoft.aspnetcore.cryptography.keyderivation.8.0.0.nupkg.sha512",
@@ -39,7 +40,9 @@
     "/home/anne/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "/home/anne/.nuget/packages/microsoft.extensions.options/8.0.0/microsoft.extensions.options.8.0.0.nupkg.sha512",
     "/home/anne/.nuget/packages/microsoft.extensions.primitives/8.0.0/microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "/home/anne/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "/home/anne/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/home/anne/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512",
     "/home/anne/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.6/sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg.sha512",
     "/home/anne/.nuget/packages/sqlitepclraw.core/2.1.6/sqlitepclraw.core.2.1.6.nupkg.sha512",
     "/home/anne/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.6/sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",

@@ -48,7 +48,4 @@ public class BankAccount(string name, string email)
         Balance = 0; // Set balance to zero after moving it
     }
 
-
-
-
 }

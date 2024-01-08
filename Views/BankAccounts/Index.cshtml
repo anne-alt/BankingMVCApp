@@ -14,7 +14,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
-            <th>Actions</th>
+            <th>Balance</th>
+            <th>Transactions</th>
         </thead>
         <tbody>
             @foreach(var bankAccount in Model)
@@ -23,7 +24,8 @@
                     <td>@bankAccount.Id</td>
                     <td>@bankAccount.Name</td>
                     <td>@bankAccount.Email</td>
-                    <td></td>
+                    <td>@bankAccount.Balance</td>
+                    <td>@bankAccount.Transactions.Count</td>
                 </tr>
             }
         </tbody>

@@ -13,19 +13,20 @@ public class BankAccountsController(ILogger<BankAccountsController> logger, AppD
 
     public async Task<IActionResult> Index()
     {
-        if (!await _appContext.BankAccounts.AnyAsync())
-        {
-            for (int i = 0; i<10;i++)
-            {
-                await _appContext.BankAccounts.AddAsync(new BankAccount(i.ToString(), $"{i}@gtbank.com"));
-                await _appContext.SaveChangesAsync();
-            }
-        }
-
         var bankAccounts = await _appContext.BankAccounts.ToListAsync();
+
+        _appContext.BankAccounts.RemoveRange(bankAccounts);
+        await _appContext.SaveChangesAsync();
+
+        var fakeAccounts = FakerBankAccounts.GenerateFakeBankAccounts(10);
+        await _appContext.BankAccounts.AddRangeAsync(fakeAccounts);
+        await _appContext.SaveChangesAsync();
+
+        bankAccounts = await _appContext.BankAccounts.ToListAsync();
 
         return View(bankAccounts);
     }
+
 
     public async Task<IActionResult> Create(BankAccount model)
     {

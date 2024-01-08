@@ -131,3 +131,5 @@
 /home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/BankingMVCApp.genruntimeconfig.cache
 /home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/ref/BankingMVCApp.dll
 /home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/BankingMVCApp.sourcelink.json
+/home/anne/Development/C/BankingMVCApp/bin/Debug/net8.0/Faker.Net.6.0.dll
+/home/anne/Development/C/BankingMVCApp/bin/Debug/net8.0/de-DE/Faker.Net.6.0.resources.dll

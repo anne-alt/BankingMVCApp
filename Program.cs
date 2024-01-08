@@ -21,10 +21,29 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+// Seed data function
+static async Task SeedData(AppDbContext context)
+{
+    if (!await context.BankAccounts.AnyAsync())
+    {
+        var fakeAccounts = FakerBankAccounts.GenerateFakeBankAccounts(10);
+        await context.BankAccounts.AddRangeAsync(fakeAccounts);
+        await context.SaveChangesAsync();
+    }
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
+    app.UseMigrationsEndPoint();
+    using (var scope = app.Services.CreateScope())
+    {
+        var services = scope.ServiceProvider;
+        var dbContext = services.GetRequiredService<AppDbContext>();
+
+        await SeedData(dbContext); // Seed data
+    }
 }
 else
 {
