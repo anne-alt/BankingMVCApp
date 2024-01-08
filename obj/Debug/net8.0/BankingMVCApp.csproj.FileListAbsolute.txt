@@ -130,3 +130,4 @@
 /home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/BankingMVCApp.pdb
 /home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/BankingMVCApp.genruntimeconfig.cache
 /home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/ref/BankingMVCApp.dll
+/home/anne/Development/C/BankingMVCApp/obj/Debug/net8.0/BankingMVCApp.sourcelink.json

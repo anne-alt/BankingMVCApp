@@ -6,16 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BankingMVCApp.Controllers;
 
-public class BankAccountsController : Controller
+public class BankAccountsController(ILogger<BankAccountsController> logger, AppDbContext appContext) : Controller
 {
-    private readonly ILogger<BankAccountsController> _logger;
-    private readonly AppDbContext _appContext;
-
-    public BankAccountsController(ILogger<BankAccountsController> logger, AppDbContext appContext)
-    {
-        _logger = logger;
-        _appContext = appContext;
-    }
+    private readonly ILogger<BankAccountsController> _logger = logger;
+    private readonly AppDbContext _appContext = appContext;
 
     public async Task<IActionResult> Index()
     {
@@ -31,5 +25,17 @@ public class BankAccountsController : Controller
         var bankAccounts = await _appContext.BankAccounts.ToListAsync();
 
         return View(bankAccounts);
+    }
+
+    public async Task<IActionResult> Create(BankAccount model)
+    {
+        if (ModelState.IsValid)
+        {
+            // Validate model and process data
+            _appContext.BankAccounts.Add(model);
+            await _appContext.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        return View(model);
     }
 }

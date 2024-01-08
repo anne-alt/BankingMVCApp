@@ -1,37 +1,40 @@
-public class BankAccount 
+public class BankAccount(string name, string email)
 {
     public int Id { get; set; }
-    public string Name { get; set; } = default!;
-    public string Email { get; set; } = default!;
+    public string Name { get; set; } = name;
+    public string Email { get; set; } = email;
     public int Balance { get; private set; } = default!;
-    public List<string> TransactionHistory { get; private set; } = default!;
+    public List<Transaction> Transactions { get; private set; } = [];
 
-    public BankAccount(string name, string email)
+    public void Deposit(int amount) 
     {
-        Name = name;
-        Email = email;
-        TransactionHistory = new List<string>();
-    }
-
-    public void Deposit(int amount) {
         Balance += amount;
-        TransactionHistory.Add($"Deposited: {amount}");
+        RecordTransaction($"Deposited: {amount}");
     }
 
-    public void Withdrawal(int amount) {
-    
+    public void Withdrawal(int amount) 
+    {
         if (amount > Balance)
         {
-            // Handle insufficient balance
-            TransactionHistory.Add($"Withdrawal failed. Insufficient balance.");
+            RecordTransaction($"Withdrawal failed. Insufficient balance.");
         }
         else
         {
             Balance -= amount;
-            TransactionHistory.Add($"Withdrawn: {amount}");
+            RecordTransaction($"Withdrawn: {amount}");
         }
     }
 
+    private void RecordTransaction(string description)
+    {
+        var transaction = new Transaction
+        {
+            BankAccountId = Id,
+            TransactionDate = DateTime.Now,
+            Description = description
+        };
+        Transactions.Add(transaction);
+    }
 
 
 
