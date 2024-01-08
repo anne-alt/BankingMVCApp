@@ -1,0 +1,31 @@
+﻿@model List<BankAccount>
+
+@{
+    ViewData["Title"] = "Bank Accounts Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@Model.Count</p>
+
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            @foreach(var bankAccount in Model)
+            {
+                <tr>
+                    <td>@bankAccount.Id</td>
+                    <td>@bankAccount.Name</td>
+                    <td>@bankAccount.Email</td>
+                    <td></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
