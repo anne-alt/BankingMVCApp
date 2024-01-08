@@ -36,6 +36,19 @@ public class BankAccount(string name, string email)
         Transactions.Add(transaction);
     }
 
+    public void UpdateEmail(string newEmail)
+    {
+        Email = newEmail;
+        RecordTransaction($"Email updated to: {newEmail}");
+    }
+    public void MoveBalanceToMobile()
+    {
+        // Simulate sending the balance to the mobile number associated with the account
+        RecordTransaction($"Balance moved to mobile");
+        Balance = 0; // Set balance to zero after moving it
+    }
+
+
 
 
 }

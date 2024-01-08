@@ -38,4 +38,53 @@ public class BankAccountsController(ILogger<BankAccountsController> logger, AppD
         }
         return View(model);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateEmail(int id, string newEmail)
+    {
+        var bankAccount = await _appContext.BankAccounts.FindAsync(id);
+
+        if (bankAccount == null)
+        {
+            return NotFound();
+        }
+        bankAccount.UpdateEmail(newEmail);
+        
+        _appContext.BankAccounts.Update(bankAccount);
+        await _appContext.SaveChangesAsync();
+
+        return RedirectToAction("Index");
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var bankAccount = await _appContext.BankAccounts.FindAsync(id);
+
+        if (bankAccount == null)
+        {
+            return NotFound();
+        }
+
+        return View(bankAccount); // Show confirmation view
+    }
+
+    [HttpPost, ActionName("ConfirmDelete")]
+    public async Task<IActionResult> ConfirmDelete(int id)
+    {
+        var bankAccount = await _appContext.BankAccounts.FindAsync(id);
+
+        if (bankAccount == null)
+        {
+            return NotFound();
+        }
+
+        bankAccount.MoveBalanceToMobile();
+        
+        _appContext.BankAccounts.Remove(bankAccount);
+        await _appContext.SaveChangesAsync();
+
+        return RedirectToAction("Index");
+    }
 }
